@@ -1,4 +1,4 @@
-﻿var employeeFormApp = angular.module('employeeFormApp', ['ngRoute']);
+﻿var employeeFormApp = angular.module('employeeFormApp', ['ngRoute', 'ui.bootstrap']);
 
 employeeFormApp.config(function ($routeProvider) {
     $routeProvider
@@ -19,12 +19,17 @@ employeeFormApp.config(function ($routeProvider) {
         });
 });
 
-employeeFormApp.controller("homeController", function ($scope, $location, dataService) {
-    $scope.addNewEmployee = function () {
-        $location.path('/newEmployeeForm');
+employeeFormApp.controller("homeController", function ($scope, $location, $modal, dataService) {
+    //$scope.addNewEmployee = function () {
+    $scope.showCreateEmployeeForm = function() {
+        //$location.path('/newEmployeeForm');
+        $modal.open({
+            templateUrl: 'app/employeeForm/employeeFormTemplate.html',
+            controller: 'efController'
+        });
     };
 
-    $scope.showUpdateEmployeForm = function (id) {
+    $scope.showUpdateEmployeeForm = function (id) {
         $location.path('/updateEmployeeForm/' + id)
     };
 });
