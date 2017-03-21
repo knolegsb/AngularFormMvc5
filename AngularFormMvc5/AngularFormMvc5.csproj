@@ -208,6 +208,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\dataService.js" />
     <Content Include="app\employeeFormApp.js" />
     <Content Include="app\employeeForm\employeeFormController.js" />
     <Content Include="app\employeeForm\employeeFormDirective.js" />

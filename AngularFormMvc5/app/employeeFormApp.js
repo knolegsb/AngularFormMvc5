@@ -10,13 +10,21 @@ employeeFormApp.config(function ($routeProvider) {
             templateUrl: "app/EmployeeForm/employeeFormTemplate.html",
             controller: "efController"
         })
+        .when("/updateEmployeeForm/:id", {
+            templateUrl: "app/EmployeeForm/employeeFormTemplate.html",
+            controller: "efController"
+        })
         .otherwise({
             redirectTo: "/apphome"
         });
 });
 
-employeeFormApp.controller("homeController", function ($scope, $location) {
+employeeFormApp.controller("homeController", function ($scope, $location, dataService) {
     $scope.addNewEmployee = function () {
         $location.path('/newEmployeeForm');
+    };
+
+    $scope.showUpdateEmployeForm = function (id) {
+        $location.path('/updateEmployeeForm/' + id)
     };
 });
